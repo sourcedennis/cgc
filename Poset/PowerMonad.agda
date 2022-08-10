@@ -107,7 +107,7 @@ associative[*/ext] = ext[↗]⸢≈⸣ associative[*]
 
 sound[*]⸢⊑⸣ : ∀ {ℓ} {A B : Poset ℓ} {f₁ f₂ : ⟪ A ↗ ℘ B ⟫} → f₁ ⊑♮ f₂ → f₁ *♮ ⊑♮ f₂ *♮
 sound[*]⸢⊑⸣ {f₁ = f₁} {f₂} f₁⊑f₂ = let open ProofMode[⊑] in [proof-mode]
-  do [[ f₁ *♮ ]]
+  𝑑𝑜 [[ f₁ *♮ ]]
    ‣ [focus-in [*] ] ⟅ f₁⊑f₂ ⟆
    ‣ [[ f₂ *♮ ]]
    ∎
@@ -117,7 +117,7 @@ sound[*]⸢≈⸣ f₁≈f₂ = ⋈ᴳ (sound[*]⸢⊑⸣ $ xRxᴳ f₁≈f₂) 
 
 complete[*]⸢⊑⸣ : ∀ {ℓ} {A B : Poset ℓ} {f₁ f₂ : ⟪ A ↗ ℘ B ⟫} → f₁ *♮ ⊑♮ f₂ *♮ → f₁ ⊑♮ f₂ 
 complete[*]⸢⊑⸣ {f₁ = f₁} {f₂} f₁*⊑f₂* = let open ProofMode[⊑] in ext[↗]⸢⊑⸣ $ λ {x} → [proof-mode]
-  do [[ f₁ ⋅ x ]]
+  𝑑𝑜 [[ f₁ ⋅ x ]]
    ‣ ⟅ ◇ right-unit[*] ⟆⸢≈⸣
    ‣ [[ f₁ *♮ ⋅ (return♮ ⋅ x) ]]
    ‣ [focus-left [⋅] 𝑜𝑓 return♮ ⋅ x ] ⟅ f₁*⊑f₂* ⟆
@@ -143,11 +143,11 @@ right-unit[⟐] = ext[↗]⸢≈⸣ right-unit[*]
 
 right-unit[⟐/pure] : ∀ {ℓ} {A B C : Poset ℓ} {g : ⟪ B ↗ ℘ C ⟫} {f : ⟪ A ↗ B ⟫} → g ⟐ pure ⋅ f ≈♮ g ∘♮ f
 right-unit[⟐/pure] {g = g} {f} = let open ProofMode[≈] in [proof-mode]
-  do [[ g *♮ ∘♮ (pure ⋅ f) ]]
+  𝑑𝑜 [[ g *♮ ∘♮ (pure ⋅ f) ]]
    ‣ ⟅ ◇ associative[∘♮] ⟆
    ‣ [[ (g *♮ ∘♮ return♮) ∘♮ f ]]
    ‣ [focus-left [∘♮] 𝑜𝑓 f ] begin 
-       do [[ g *♮ ∘♮ return♮ ]]
+       𝑑𝑜 [[ g *♮ ∘♮ return♮ ]]
         ‣ ⟅ right-unit[⟐] ⟆
         ‣ [[ g ]]
        end
@@ -157,7 +157,7 @@ right-unit[⟐/pure] {g = g} {f} = let open ProofMode[≈] in [proof-mode]
   
 associative[⟐] : ∀ {ℓ} {A B C D : Poset ℓ} {h : ⟪ C ↗ ℘ D ⟫} {g : ⟪ B ↗ ℘ C ⟫} {f : ⟪ A ↗ ℘ B ⟫} → (h ⟐ g) ⟐ f ≈♮ h ⟐ (g ⟐ f)
 associative[⟐] {h = h} {g} {f} = let open ProofMode[≈] in [proof-mode]
-  do [[ (h ⟐ g) ⟐ f ]]
+  𝑑𝑜 [[ (h ⟐ g) ⟐ f ]]
    ‣ [[ (h *♮ ∘♮ g) *♮ ∘♮ f ]]
    ‣ [focus-left [∘♮] 𝑜𝑓 f ] ⟅ associative[*/ext] ⟆
    ‣ [[ (h *♮ ∘♮ g *♮) ∘♮ f ]]
@@ -168,7 +168,7 @@ associative[⟐] {h = h} {g} {f} = let open ProofMode[≈] in [proof-mode]
 
 homomorphic[pure/⟐] : ∀ {ℓ} {A B C : Poset ℓ} {g : ⟪ B ↗ C ⟫} {f : ⟪ A ↗ B ⟫} → pure ⋅ g ⟐ pure ⋅ f ≈♮ pure ⋅ (g ∘♮ f)
 homomorphic[pure/⟐] {g = g} {f} = let open ProofMode[≈] in [proof-mode]
-  do [[ pure ⋅ g ⟐ pure ⋅ f ]]
+  𝑑𝑜 [[ pure ⋅ g ⟐ pure ⋅ f ]]
    ‣ [[ (pure ⋅ g) *♮ ∘♮ pure ⋅ f ]]
    ‣ ⟅ right-unit[⟐/pure] ⟆
    ‣ [[ pure ⋅ g ∘♮ f ]]

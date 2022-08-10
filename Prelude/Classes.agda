@@ -124,13 +124,13 @@ record Monad {ℓ} (M : Set ℓ → Set ℓ) : Set (↑ᴸ ℓ) where
   (f *) X = X ≫= f
   _^⋅_ : ∀ {A B : Set ℓ} → (A → B) → M A → M B
   f ^⋅ X =
-    do x ← X
+    𝑑𝑜 x ← X
      ‣ return (f x)
   -- I'd like either syntax support for this (syntax with multiple
   -- binders) or support for patterns in syntax
   bind₂ : ∀ {A B C : Set ℓ} → M (A ∧ B) → (A → B → M C) → M C
   bind₂ XY f =
-    do xy ← XY
+    𝑑𝑜 xy ← XY
      ‣ let ⟨ x , y ⟩ = xy in
        f x y
 open Monad {{…}} public

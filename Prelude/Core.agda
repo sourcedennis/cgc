@@ -4,7 +4,7 @@ open import Agda.Primitive public
   using (Level)
   renaming (lzero to 0ᴸ ; lsuc to ↑ᴸ ; _⊔_ to _⊔ᴸ_)
 
-infixr 0 _$$_ do_
+infixr 0 _$$_ 𝑑𝑜_
 infixr 1 _$_ if_then_else_ case_𝑜𝑓_
 syntax the A x = x 𝑎𝑡 A
 infixl 4 the _𝑜𝑛_
@@ -92,8 +92,6 @@ data list {ℓ} (A : Set ℓ) : Set ℓ where
   _∷_ : A → list A → list A
 
 {-# BUILTIN LIST list #-}
-{-# BUILTIN NIL  []   #-}
-{-# BUILTIN CONS _∷_  #-}
 
 ----------
 -- Void --
@@ -270,8 +268,8 @@ id x = x
 _$_ : ∀  {ℓ₁ ℓ₂} {A : Set ℓ₁} {B : Set ℓ₂} → (A → B) → A → B
 f $ x = f x
 
-do_ : ∀ {ℓ} {A : Set ℓ} → A → A
-do_ x = x
+𝑑𝑜_ : ∀ {ℓ} {A : Set ℓ} → A → A
+𝑑𝑜_ x = x
 
 _$$_ : ∀ {ℓ₁ ℓ₂} {A : Set ℓ₁} {B : Set ℓ₂} → (A → B) → A → B
 f $$ x = f x

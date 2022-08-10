@@ -29,8 +29,8 @@ module _ {ℓ} {A : Poset ℓ} where
   weaken[∈/L]ˡ♭ ⊑₁ (Succ ∈⊑₁) = Succ (weaken[∈/L]ˡ♭ ⊑₁ ∈⊑₁)
 
   weaken[∈/R]ˡ♭ : ∀ {x xs ys} → x ∈⊑ˡ♭ xs → xs ⊑ˡ♭ ys → x ∈⊑ˡ♭ ys
-  weaken[∈/R]ˡ♭ (Zero x⊑y) (∈ ∷ ⊑) = weaken[∈/L]ˡ♭ x⊑y ∈
-  weaken[∈/R]ˡ♭ (Succ ∈′) (∈ ∷ ⊑) = weaken[∈/R]ˡ♭ ∈′ ⊑
+  weaken[∈/R]ˡ♭ (Zero x⊑y) (∈ ∷ ⊑') = weaken[∈/L]ˡ♭ x⊑y ∈
+  weaken[∈/R]ˡ♭ (Succ ∈′) (∈ ∷ ⊑') = weaken[∈/R]ˡ♭ ∈′ ⊑'
 
   _⊚⸢⊑ˡ♭⸣_ : ∀ {xs ys zs} → ys ⊑ˡ♭ zs → xs ⊑ˡ♭ ys → xs ⊑ˡ♭ zs
   ⊑₂ ⊚⸢⊑ˡ♭⸣ [] = []
